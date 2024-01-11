@@ -5,27 +5,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.alexey.rentflatsservice.core.entity.UserRole;
+
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Accessors(chain = true)
-public class FlatFilter {
+public class UserDetailsDto {
 
-    private Integer priceFrom;
+    private UUID id;
 
-    private Integer priceTo;
+    private String email;
 
-    private Integer bedroomsFrom;
+    private String fio;
 
-    private Integer bedroomsTo;
-
-    private Integer areaFrom;
-
-    private Integer areaTo;
-
-    private Integer[] floors;
-
-    private Boolean photo;
+    private UserRole role;
 }
