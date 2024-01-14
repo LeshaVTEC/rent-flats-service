@@ -6,14 +6,16 @@ import org.alexey.rentflatsservice.core.entity.Flat;
 import org.alexey.rentflatsservice.transformer.FlatTransformer;
 import org.springframework.stereotype.Component;
 
+import java.time.ZoneId;
+
 @Component
 public class FlatTransformerImpl implements FlatTransformer {
 
     @Override
     public FlatInfoDto transformFlatInfoDtoFromEntity(Flat flat) {
         return new FlatInfoDto().setId(flat.getId())
-                .setCreationDate(flat.getCreationDate())
-                .setUpdatedDate(flat.getUpdateDate())
+                .setCreationDate(flat.getCreationDate().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())
+                .setUpdatedDate(flat.getUpdateDate().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())
                 .setOfferType(flat.getOfferType())
                 .setDescription(flat.getDescription())
                 .setBedrooms(flat.getBedrooms())

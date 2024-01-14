@@ -1,5 +1,6 @@
 package org.alexey.rentflatsservice.core.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,12 +18,16 @@ import java.util.UUID;
 @Accessors(chain = true)
 public class FlatInfoDto {
 
+    @JsonProperty("uuid")
     private UUID id;
 
-    private LocalDateTime creationDate;
+    @JsonProperty("dt_create")
+    private Long creationDate;
 
-    private LocalDateTime updatedDate;
+    @JsonProperty("dt_update")
+    private Long updatedDate;
 
+    @JsonProperty("offer_type")
     private OfferType offerType;
 
     private String description;
@@ -35,7 +40,9 @@ public class FlatInfoDto {
 
     private Integer floor;
 
+    @JsonProperty("photo_urls")
     private String[] photoUrls;
 
+    @JsonProperty("original_url")
     private String originalUrl;
 }
